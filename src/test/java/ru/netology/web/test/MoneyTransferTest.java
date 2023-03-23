@@ -50,7 +50,7 @@ class MoneyTransferTest {
         var transferPage = dashboardPage.topUpBalance(DataHelper.getFirstCardInfo().getCardId());
         var transferFromSecondCardToFirst = DataHelper.getSecondCardInfo();
         int sum = 12_000;
-        transferPage.transfer(transferFromSecondCardToFirst, sum);
+        dashboardPage = transferPage.transfer(transferFromSecondCardToFirst, sum);
         var balanceFirstCard = DataHelper.newBalanceCardPlus(beforeBalanceFirstCard, sum);
         var balanceSecondCard = DataHelper.newBalanceCardMinus(beforeBalanceSecondCard, sum);
 
@@ -67,7 +67,7 @@ class MoneyTransferTest {
         var transferPage = dashboardPage.topUpBalance(DataHelper.getSecondCardInfo().getCardId());
         var transferFromFirstCardToSecond = DataHelper.getFirstCardInfo();
         int sum = 12_000;
-        transferPage.transfer(transferFromFirstCardToSecond, sum);
+        dashboardPage = transferPage.transfer(transferFromFirstCardToSecond, sum);
         var balanceFirstCard = DataHelper.newBalanceCardMinus(beforeBalanceFirstCard, sum);
         var balanceSecondCard = DataHelper.newBalanceCardPlus(beforeBalanceSecondCard, sum);
 
@@ -84,7 +84,7 @@ class MoneyTransferTest {
         var transferPage = dashboardPage.topUpBalance(DataHelper.getSecondCardInfo().getCardId());
         var transferFromFirstCardToSecond = DataHelper.getFirstCardInfo();
         int sum = 3_650;
-        transferPage.transfer(transferFromFirstCardToSecond, sum);
+        dashboardPage = transferPage.transfer(transferFromFirstCardToSecond, sum);
         var balanceFirstCard = DataHelper.newBalanceCardMinus(beforeBalanceFirstCard, sum);
         var balanceSecondCard = DataHelper.newBalanceCardPlus(beforeBalanceSecondCard, sum);
 
@@ -101,7 +101,7 @@ class MoneyTransferTest {
         var transferPage = dashboardPage.topUpBalance(DataHelper.getSecondCardInfo().getCardId());
         var transferFromFirstCardToSecond = DataHelper.getFirstCardInfo();
         int sum = 0;
-        transferPage.transfer(transferFromFirstCardToSecond, sum);
+        dashboardPage = transferPage.transfer(transferFromFirstCardToSecond, sum);
         var balanceFirstCard = DataHelper.newBalanceCardMinus(beforeBalanceFirstCard, sum);
         var balanceSecondCard = DataHelper.newBalanceCardPlus(beforeBalanceSecondCard, sum);
 
