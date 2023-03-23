@@ -33,12 +33,12 @@ class MoneyTransferTest {
         var transferPage = dashboardPage.topUpBalance(DataHelper.getFirstCardInfo().getCardId());
         var transferFromSecondCardToFirst = DataHelper.getSecondCardInfo();
         int sum = 2_000;
-        DashboardPage dashboardPageAfter = transferPage.transfer(transferFromSecondCardToFirst, sum);
+        dashboardPage = transferPage.transfer(transferFromSecondCardToFirst, sum);
         var balanceFirstCard = DataHelper.newBalanceCardPlus(beforeBalanceFirstCard, sum);
         var balanceSecondCard = DataHelper.newBalanceCardMinus(beforeBalanceSecondCard, sum);
 
-        assertEquals(balanceFirstCard, dashboardPageAfter.getCardBalance(DataHelper.getFirstCardInfo().getCardId()));
-        assertEquals(balanceSecondCard, dashboardPageAfter.getCardBalance(DataHelper.getSecondCardInfo().getCardId()));
+        assertEquals(balanceFirstCard, dashboardPage.getCardBalance(DataHelper.getFirstCardInfo().getCardId()));
+        assertEquals(balanceSecondCard, dashboardPage.getCardBalance(DataHelper.getSecondCardInfo().getCardId()));
     }
 
     @Test
