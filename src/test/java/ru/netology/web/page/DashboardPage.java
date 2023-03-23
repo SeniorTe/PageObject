@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import lombok.val;
+import ru.netology.web.data.DataHelper;
 
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
@@ -33,13 +34,13 @@ public class DashboardPage {
         return Integer.parseInt(value);
     }
 
-    public TransferPage topUpFirstCard() {
-        buttonsCards.get(0).click();
-        return new TransferPage();
-    }
-
-    public TransferPage topUpSecondCard() {
-        buttonsCards.get(1).click();
+    public TransferPage topUpBalance(String id) {
+        int cardIndex = 0;
+        if (id.equals(DataHelper.getSecondCardInfo().getCardId())) {
+            cardIndex = 1;
+        }
+        ;
+        buttonsCards.get(cardIndex).click();
         return new TransferPage();
     }
 }

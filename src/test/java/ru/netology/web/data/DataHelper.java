@@ -15,8 +15,8 @@ public class DataHelper {
 
     @Value
     public static class CardsInfo {
-        private String CardId;
-        private String NumberCard;
+        private String cardId;
+        private String numberCard;
     }
 
     public static CardsInfo getFirstCardInfo() {
@@ -54,4 +54,3 @@ public class DataHelper {
         return balanceCardMinus;
     }
 }
-

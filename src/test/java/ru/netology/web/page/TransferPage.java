@@ -10,9 +10,10 @@ public class TransferPage {
     private SelenideElement numberCardFrom = $("[data-test-id=from] input");
     private SelenideElement buttonStartTransfer = $("[data-test-id=action-transfer]");
 
-    public void transfer(DataHelper.CardsInfo info, int sum) {
+    public DashboardPage transfer(DataHelper.CardsInfo info, int sum) {
         sumTransfer.setValue(String.valueOf(sum));
         numberCardFrom.setValue(info.getNumberCard());
         buttonStartTransfer.click();
+        return new DashboardPage();
     }
 }
